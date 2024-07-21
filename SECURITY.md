@@ -1,15 +1,15 @@
-# Security Policy
+# 🔒 Security Policy
 
-## Supported Versions
-Now current version is ```dev1.1```
+## 📅 Supported Versions
+Currently, the supported version is ```dev1.1```
 
 | Version | Supported          |
 | ------- | ------------------ |
-| dev1.1  | :white_check_mark: |
+| dev1.1  | ✅ Yes             |
 
-## Reporting a Vulnerability
-The security is the most priority for us.
-If you want to report any issue please contact to this [form](https://forms.gle/GmzxFR6dC5g7dB7w5). The form is completely anonymous.
-In other hand, if you prefer to send a email you're able to send it to this direction hoshimiyanimation.contact@protonmail.com .
+## 🚨 Reporting a Vulnerability
+Security is our top priority! If you need to report a vulnerability, please use this [anonymous form](https://forms.gle/GmzxFR6dC5g7dB7w5). 
 
-However, if you want to collaborate to patch this vulnerability, please create your Pull Request and feel forced to share your knowledge and abilities with us and all community.
+Alternatively, if you prefer to send an email, you can reach us at: ✉️ hoshimiyanimation.contact@protonmail.com
+
+If you're interested in helping us patch vulnerabilities, feel free to create a Pull Request. We welcome your contributions and are grateful for your support in keeping our community safe! 🌟
