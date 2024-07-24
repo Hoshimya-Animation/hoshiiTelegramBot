@@ -187,7 +187,7 @@ class AnimeApp:
             self.__animeTitle_Japanese = dataAnime['data']['title_japanese']  # Store the original Japanese title
             listGenders = [gen['name'] for gen in dataAnime['data']['genres']]  # Extract the genres of the anime
             self.translated_gender = [self.__dataTranslated(g, 'en') for g in listGenders]  # Translate the genres to English
-            self.__genderAnime = "#" + "#".join(map(str, self.translated_gender))  # Format the genres as a string
+            self.__genderAnime = "#" + " #".join(map(str, self.translated_gender))  # Format the genres as a string
             self.__aired = self.__dataTranslated(str(dataAnime['data']['aired']['string']), 'en')  # Translate the airing date
             self.__episodes = str(dataAnime['data']['episodes'])  # Store the number of episodes
             self.__score = str(dataAnime['data']['score'])  # Store the score of the anime
@@ -196,7 +196,7 @@ class AnimeApp:
             self.__status = self.__dataTranslated(dataAnime['data']['status'], 'en')  # Translate the status of the anime
             self.__types = dataAnime['data']['type']  # Store the type of the anime
             self.__synopsis = self.__dataTranslated(dataAnime['data']['synopsis'], 'en')  # Translate the synopsis
-            self.__urlPicture = str(dataAnime['data']['images']['jpg']['image_url'])  # Store the URL of the anime picture
+            self.__urlPicture = str(dataAnime['data']['images']['jpg']['large_image_url'])  # Store the URL of the anime picture
             self.animeData.extend([
                 self.__animeTitle, self.__animeTitle_Japanese, self.__types,
                 self.__genderAnime, self.__aired, self.__episodes,
@@ -204,7 +204,7 @@ class AnimeApp:
                 self.__synopsis, self.__urlPicture
             ])  # Add all the collected data to the animeData list
             return self.animeData  # Return the list containing the anime data
-        elif self.animeSource == '' and rand == True:  # Check if the anime source is empty and rand is True
+        elif (self.animeSource == '' or self.animeSource != '') and rand == True:  # Check if the anime source is empty and rand is True
             id_anime_rand = self.request_api.random('anime')  # Fetch a random anime using the Jikan API
             try:
                 self.__animeId = id_anime_rand['data']['mal_id']  # Get the anime ID from the random anime data
@@ -213,7 +213,7 @@ class AnimeApp:
                 self.__animeTitle_Japanese = dataAnime['data']['title_japanese']  # Store the original Japanese title
                 listGenders = [gen['name'] for gen in dataAnime['data']['genres']]  # Extract the genres of the anime
                 self.translated_gender = [self.__dataTranslated(g, 'en') for g in listGenders]  # Translate the genres to English
-                self.__genderAnime = "#" + "#".join(map(str, self.translated_gender))  # Format the genres as a string
+                self.__genderAnime = "#"+ " #".join(map(str, self.translated_gender))  # Format the genres as a string
                 self.__aired = self.__dataTranslated(str(dataAnime['data']['aired']['string']), 'en')  # Translate the airing date
                 self.__episodes = str(dataAnime['data']['episodes'])  # Store the number of episodes
                 self.__score = str(dataAnime['data']['score'])  # Store the score of the anime
@@ -222,7 +222,7 @@ class AnimeApp:
                 self.__status = self.__dataTranslated(dataAnime['data']['status'], 'en')  # Translate the status of the anime
                 self.__types = dataAnime['data']['type']  # Store the type of the anime
                 self.__synopsis = self.__dataTranslated(dataAnime['data']['synopsis'], 'en')  # Translate the synopsis
-                self.__urlPicture = str(dataAnime['data']['images']['jpg']['image_url'])  # Store the URL of the anime picture
+                self.__urlPicture = str(dataAnime['data']['images']['jpg']['large_image_url'])  # Store the URL of the anime picture
                 self.animeData.extend([
                     self.__animeTitle, self.__animeTitle_Japanese, self.__types,
                     self.__genderAnime, self.__aired, self.__episodes,
@@ -267,7 +267,7 @@ class AnimeApp:
             self.__animeTitle_Japanese = dataAnime['data']['title_japanese']  # Store the Japanese title of the anime
             listGenders = [gen['name'] for gen in dataAnime['data']['genres']]  # Extract the list of genres from the anime data
             self.translated_gender = [self.__dataTranslated(g, 'en') for g in listGenders]  # Translate each genre to English
-            self.__genderAnime = "#" + "#".join(map(str, self.translated_gender))  # Format the translated genres as a string
+            self.__genderAnime = "#"+ " #".join(map(str, self.translated_gender))  # Format the translated genres as a string
             self.__aired = self.__dataTranslated(str(dataAnime['data']['aired']['string']), 'en')  # Translate the airing date of the anime
             self.__episodes = str(dataAnime['data']['episodes'])  # Store the number of episodes as a string
             self.__score = str(dataAnime['data']['score'])  # Store the score of the anime as a string
@@ -276,7 +276,7 @@ class AnimeApp:
             self.__status = self.__dataTranslated(dataAnime['data']['status'], 'en')  # Translate the status of the anime
             self.__types = dataAnime['data']['type']  # Store the type of the anime
             self.__synopsis = self.__dataTranslated(dataAnime['data']['synopsis'], 'en')  # Translate the synopsis of the anime
-            self.__urlPicture = str(dataAnime['data']['images']['jpg']['image_url'])  # Store the URL of the anime picture
+            self.__urlPicture = str(dataAnime['data']['images']['jpg']['large_image_url'])  # Store the URL of the anime picture
             self.animeSuggest.extend([
                 self.__animeTitle, self.__animeTitle_Japanese, self.__types,
                 self.__genderAnime, self.__aired, self.__episodes,
@@ -300,6 +300,7 @@ class AnimeApp:
         list
             A list of suggested anime.
         """
+        self.animeSuggest = []
         while self.__getSuggestions(genderChoose) == []:
             continue  # Keep trying until suggestions are found
         return self.animeSuggest
@@ -314,12 +315,14 @@ class AnimeApp:
             A list of anime data.
         """
         if self.animeSource != '' and self.option == 'useranime':  # Check if the anime source is specified and the option is 'useranime'
+            self.animeData = []
             try:
                 self.__fillAnimeData(False)  # Fill anime data without random selection
                 return self.animeData  # Return the filled anime data
             except:
                 return []  # Return an empty list if an exception occurs
-        elif self.animeSource == '' and self.option == 'randanime':  # Check if the anime source is not specified and the option is 'randanime'
+        elif (self.animeSource == '' or self.animeSource !='') and self.option == 'randanime':  # Check if the anime source is not specified and the option is 'randanime'
+            self.animeData = []
             while self.__fillAnimeData(True) == []:  # Keep trying to fill data with random selection until successful
                 continue  # Continue the loop until data is filled
             return self.animeData  # Return the filled anime data

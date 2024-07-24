@@ -127,12 +127,14 @@ class gendersIDs:
         for num in self.animeID:
             # If r is not equal to 3
             if r != 3:
-                # Fetch anime details using the Jikan API
-                ids = self.contact.anime(num)
-                # Extract the list of genre names from the fetched data
-                ll = [genre['name'] for genre in ids['data']['genres']]
-                # Call the commonList method to update genre lists with the current anime ID
-                self.commonList(ll, num)
+                try:
+                    # Fetch anime details using the Jikan API
+                    ids = self.contact.anime(num)
+                    # Extract the list of genre names from the fetched data
+                    ll = [genre['name'] for genre in ids['data']['genres']]
+                    # Call the commonList method to update genre lists with the current anime ID
+                    self.commonList(ll, num)
+                except:pass
                 # Print the current registration number
                 print("Registo: ", i + 1, flush=True)
                 # Increment the counters i and r
@@ -140,8 +142,6 @@ class gendersIDs:
                 r += 1
             # If r is equal to 3
             elif r == 3:
-                # Print a message indicating a sleep period
-                print("Duerme", flush=True)
                 # Sleep for 3 seconds
                 time.sleep(3)
                 # Reset the counter r to 0
@@ -152,6 +152,6 @@ class gendersIDs:
         self.returnJsonDict()
 
 # Create an instance of the gendersIDs class with anime IDs obtained from the getIDAnime function
-update_json = gendersIDs(getIDAnime()[0:4])
+update_json = gendersIDs(getIDAnime())
 # Call the runList method to process the anime IDs and update the JSON file
 update_json.runList()

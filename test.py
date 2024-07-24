@@ -21,5 +21,5 @@ print(source_anime.getAnimeData())
 recomendation_gender = AnimeApp()
 #Change language to spanish
 recomendation_gender.changeLanguage('es')
-#Search and print recomendation (In this commit is not available 'Ecchi', 'Erotica', 'Hentai')
-print(recomendation_gender.getSuggestbyGenre('Horror'))
+#Search and print recomendation
+print(recomendation_gender.getSuggestbyGenre('Ecchi'))
