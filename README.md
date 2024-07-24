@@ -98,5 +98,8 @@ If you have any questions or suggestions, feel free to open an issue or reach ou
 
 <p align="center">
   <img src="img/logo_draf2.png" alt="Kawaii Bot2""/>
+</p>
+
+<p align="center">
   Made with 💖 by <a href="https://github.com/Hoshimya-Animation">Hoshimya Animation</a>, <a href="https://github.com/JohnKun136NVCP">John </a>
 </p>
