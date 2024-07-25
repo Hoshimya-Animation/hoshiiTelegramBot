@@ -229,7 +229,7 @@ async def requestRandom(update: Update, context: CallbackContext) -> None:
         # If the help_info string is longer than 1000 characters, truncate it and add ellipses
         if len(help_info)>=1000:help_info = help_info[0:997]+"..."
         # Check if the anime is categorized as hentai or erotica
-        if (telebot.translatedData('#Hentai') in animedata[3] or telebot.translatedData('#hentai') in animedata[3]) or (telebot.translatedData('#Erotica') in animedata[3] or telebot.translatedData('#erotica') in animedata[3]):
+        if ('#Hentai' in animedata[3] or '#hentai' in animedata[3]) or ('#Erotica' in animedata[3] or '#erotica' in animedata[3]):
             try:
                 # Notify the user that an anime suggestion is being sent
                 await update.message.reply_text("Alright! Maybe you mean this anime.")
@@ -313,7 +313,7 @@ async def requestAnime(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
                 # If the help_info string is longer than 1000 characters, truncate it and add ellipses
                 if len(help_info)>=1000:help_info = help_info[0:997]+"..."
                 # Check if the anime is categorized as hentai or erotica
-                if (telebot.translatedData('#Hentai') in animedata[3] or telebot.translatedData('#hentai') in animedata[3]) or (telebot.translatedData('#Erotica') in animedata[3] or telebot.translatedData('#erotica') in animedata[3]):
+                if ('#Hentai' in animedata[3] or '#hentai' in animedata[3]) or ('#Erotica' in animedata[3] or '#erotica' in animedata[3]):
                     try:
                         # Notify the user that an anime suggestion is being sent
                         await update.message.reply_text("Alright! Maybe you mean this anime.")
