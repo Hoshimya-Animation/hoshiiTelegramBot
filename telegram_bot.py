@@ -237,7 +237,7 @@ async def requestRandom(update: Update, context: CallbackContext) -> None:
                 await context.bot.send_photo(chat_id=update.message.chat_id,photo=animedata[10],caption=help_info,has_spoiler=True)
             except:
                 # If an error occurs, notify the user
-                await update.message.reply_text(telebot.translatedData("Error! Try it again, please. (╥﹏╥)"))
+                await update.message.reply_text("Error! Try it again, please. (╥﹏╥)")
         else:
             try:
                 # Notify the user that an anime suggestion is being sent
