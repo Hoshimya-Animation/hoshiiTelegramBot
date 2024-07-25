@@ -15,7 +15,7 @@ hstspreload==2024.7.1
 httpcore==1.0.5
 httpx==0.27.0
 hyperframe==5.2.0
-idna==2.10
+idna==3.7
 jikanpy-v4==1.0.2
 multidict==6.0.5
 python-telegram-bot==21.4
