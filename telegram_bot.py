@@ -200,7 +200,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         # Get the abbreviation for the language
         animeApp.changeLanguage(language)
         # Change the language in the animeApp
-        await query.edit_message_text(text=f"{telebot.translatedData("Selected option")}: {query.data}")
+        await query.edit_message_text(text=f"{telebot.translatedData('Selected option')}: {query.data}")
 """
 Request Random Anime Function
 

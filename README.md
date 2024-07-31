@@ -37,6 +37,28 @@ Welcome to the **hoshiiTelegramBot**! This adorable Telegram bot fetches anime a
     ```bash
     pip3 install -r requirements.txt
     ```
+>[!IMPORTANT]
+> If a message error apears about googletrans about httpx version or jikanApi or TelegramBot, please follow this steps.
+
+- Install manually **httpx**.
+
+  ```bash
+  # Install httpx version greater equal to 0.13.3
+  pip3 install "httpx>=0.13.3"
+  pip3 instal googletrans==4.0.0-rc1
+  ```
+- For Jikan Api.
+
+  ```bash
+  # Install api
+  pip3 install jikanapi-v4
+  ```
+- Finally TelegramBot.
+
+  ```bash
+  # Install python-telegram-bot
+  pip3 install python-telegram-bot
+  ```
 3. Open the file **main.py** and replace your Telegram Token of your Bot on ```TELEGRM_TOKEN```, i.e. ```"123+2"``` .
 
 4. Run the bot: 🤖
