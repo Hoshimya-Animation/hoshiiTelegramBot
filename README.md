@@ -45,13 +45,13 @@ Welcome to the **hoshiiTelegramBot**! This adorable Telegram bot fetches anime a
   ```bash
   # Install httpx version greater equal to 0.13.3
   pip3 install "httpx>=0.13.3"
-  pip3 instal googletrans==4.0.0-rc1
+  pip3 install googletrans==4.0.0-rc1
   ```
 - For Jikan Api.
 
   ```bash
   # Install api
-  pip3 install jikanapi-v4
+  pip3 install jikanpy-v4
   ```
 - Finally TelegramBot.
 
