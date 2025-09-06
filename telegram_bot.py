@@ -1154,6 +1154,6 @@ def main(TELEGRAM_TOKEN):
     application.add_handler(CommandHandler("hoshiimanga",requestGenderManga))
     application.add_handler(CommandHandler("showgen",showGen)) #Handle the /showgen command
     application.add_handler(CommandHandler("help", help))# Handle the /help command
-    application.add_handler(MessageHandler(filters.USER,handle_non_command_message))
+    #application.add_handler(MessageHandler(filters.USER,handle_non_command_message))
     #Run the bot until the user presses Ctrl-C
     application.run_polling()
